@@ -29,4 +29,10 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+private:
+	CString operand1;
+	CString operand2;
+	CString result;
+public:
+	afx_msg void OnBnClickedButton1();
 };

@@ -49,6 +49,9 @@ END_MESSAGE_MAP()
 
 CCalculatorDlg::CCalculatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CCalculatorDlg::IDD, pParent)
+	, operand1(_T(""))
+	, operand2(_T(""))
+	, result(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -56,12 +59,16 @@ CCalculatorDlg::CCalculatorDlg(CWnd* pParent /*=NULL*/)
 void CCalculatorDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, operand1);
+	DDX_Text(pDX, IDC_EDIT2, operand2);
+	DDX_Text(pDX, IDC_EDIT3, result);
 }
 
 BEGIN_MESSAGE_MAP(CCalculatorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CCalculatorDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -150,3 +157,17 @@ HCURSOR CCalculatorDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+
+
+
+
+void CCalculatorDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+	//CString S;
+	//S.format("",1);
+	operand1="1";
+	UpdateData(FALSE);
+}
